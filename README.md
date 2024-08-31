@@ -1,2 +1,3 @@
 # web-app-template
-A frontend web app template using TypeScript, React, Vite, Zustand, React Query, and Playwright.
+
+A frontend web app template using Vite, TypeScript, React, Mantine UI, Zustand, React Query, and Playwright.
