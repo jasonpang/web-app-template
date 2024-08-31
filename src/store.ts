@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
 type State = {
@@ -10,11 +11,16 @@ type Actions = {
 };
 
 export const useAppStore = create<State & Actions>()(
-  immer((set) => ({
-    counter: 0,
-    setCounter: (value: number) =>
-      set((state) => {
-        state.counter = value;
-      }),
-  }))
+  persist(
+    immer((set) => ({
+      counter: 0,
+      setCounter: (value: number) =>
+        set((state) => {
+          state.counter = value;
+        }),
+    })),
+    {
+      name: "app-storage",
+    }
+  )
 );
